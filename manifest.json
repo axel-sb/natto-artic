@@ -1,0 +1,58 @@
+{
+  "name": "artic explorer",
+  "short_name": "artic",
+  "start_url": "/",
+  "display": "standalone",
+  "display_override": [
+    "window-controls-overlay"
+  ],
+  "description": "Browse the Art Institute of Chicago Images",
+  "lang": "en",
+  "dir": "auto",
+  "theme_color": "#000000",
+  "background_color": "#000000",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "logo_512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "logo_192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "Screenshot_h.png",
+      "form_factor": "narrow",
+      "sizes": "700x1007",
+      "type": "image/png",
+      "description": "A random artwork from the collection"
+    },
+    {
+      "src": "Screenshot_w.png",
+      "form_factor": "wide",
+      "sizes": "2000x1717",
+      "type": "image/png",
+      "description": "A random artwork from the collection"
+    }
+  ],
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name": "artic demo shortcut",
+      "url": "/",
+      "icons": [
+        {
+          "src": "logo_96.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
+}

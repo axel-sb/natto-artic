@@ -1,0 +1,177 @@
+/* #region(collapsed) R E S E T  __________ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove all margins & padding. */
+* {
+  margin : 0;
+  padding: 0;
+}
+
+html {
+  -moz-text-size-adjust   : none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust        : none;
+}
+
+html,
+body {
+  height                : 100%;
+  display               : flex;
+  -webkit-font-smoothing: antialiased;
+  /* Prevent the rubber band scroll effect when the user hits the top or bottom of the document */
+  overscroll-behavior   : none;
+  flex-direction        : column;
+  font-family           : system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.wrapper {
+  display        : flex;
+  width          : 100%;
+  max-height: 100vh;
+  margin         : 0 auto;
+  align-items    : center;
+  justify-content: space-around;
+  flex-direction : column;
+}
+
+img,
+picture,
+video,
+canvas,
+svg,
+iframe {
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+strong {
+  overflow-wrap: normal;
+}
+
+a {
+  text-decoration             : underline;
+  color                       : #999;
+  /* text-underline-offset    : 3px; */
+  /* text-decoration-thickness: 5px; */
+  /* text-decoration-style    : wavy; */
+  text-decoration-color       : #186de4;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+input {
+  border    : none;
+  visibility: hidden;
+}
+
+/* Create a root stacking context (only when using JS frameworks like React). */
+#__next {
+  isolation: isolate;
+}
+
+/* #endregion   _________  reset  _________   */
+
+/* artworks from Art Institute of Chicago */
+
+header {
+  display   : inline-block;
+  position  : relative;
+  text-align: center;
+  max-height: min-content;
+  margin    : 1rem;
+}
+
+h1 {
+  max-width: 30vw;
+}
+
+#button-wrapper {
+  width          : 100%;
+  display        : flex;
+  position       : absolute;
+  top: 8%;
+  justify-content: center;
+}
+
+#button-wrapper>button {
+  display            : flex;
+  flex-direction     : column;
+  align-items        : center;
+  padding            : 6px 14px;
+  font-family        : -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+  font-size: 1.25rem;
+  border-radius      : 6px;
+  border             : none;
+  background         : #6E6D70;
+  box-shadow         : 0px 0.5px 1px rgba(0, 0, 0, 0.1), inset 0px 0.5px 0.5px rgba(255, 255, 255, 0.5), 0px 0px 0px 0.5px rgba(0, 0, 0, 0.12);
+  color              : #DFDEDF;
+  user-select        : none;
+  -webkit-user-select: none;
+  touch-action       : manipulation;
+}
+
+#button-wrapper>button:focus {
+  box-shadow: inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2), 0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
+  outline   : 0;
+}
+
+svg {
+  max-width : 30vw;
+  max-height: 30vw;
+}
+
+.artwork-image>img {
+  max-width : 100%;
+  max-height: 80vh;
+}
+
+.icon-magn {
+  display: none;
+  margin : clamp(0%, 0px, 20px) clamp(2%, 10px, 40px);
+  width  : 40px;
+}
+
+.search-section>p {
+  padding-bottom: .5rem;
+  font-size     : .8rem;
+}
+
+input {
+  font-size       : .2rem;
+  line-height     : 1;
+  font-weight     : 400;
+  /* margin       : 0 0 0.5rem;
+  padding         : 0.3rem 0.5rem; 
+  box-shadow      : 0px 3px 5px 0px #0001, 0px 4px 15px 0px #00000001;
+  border-radius   : 5px;
+  border-bottom   : 1px solid #eee;
+  flex            : 1 1 400px;*/
+  max-width       : 0;
+}
+
+.artwork-image {
+  margin   : 0 auto;
+  max-width: 1105px;
+  height   : auto;
+}
+
+div.artwork-image>p {
+  padding-left: 1rem;
+  padding-top : .5rem;
+  font-size   : 1rem;
+  margin      : 0 auto;
+}

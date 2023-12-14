@@ -1,7 +1,8 @@
 {
   "name": "artic explorer",
   "short_name": "artic",
-  "start_url": "/",
+  "start_url": "/natto-artic",
+  "id": "/",
   "display": "standalone",
   "display_override": [
     "window-controls-overlay"
@@ -37,7 +38,7 @@
     {
       "src": "Screenshot_w.png",
       "form_factor": "wide",
-      "sizes": "2000x1717",
+      "sizes": "1702x1700",
       "type": "image/png",
       "description": "A random artwork from the collection"
     }
@@ -46,7 +47,7 @@
   "shortcuts": [
     {
       "name": "artic demo shortcut",
-      "url": "/",
+      "url": "/natto-artic",
       "icons": [
         {
           "src": "logo_96.png",

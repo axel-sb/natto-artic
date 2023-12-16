@@ -14,7 +14,7 @@
 <body>
   <div class="wrapper">
     <header>
-      <h1 onclick="location.reload()">
+      <h1>
         <svg aria-hidden="true">
           <use xlink:href="#icon--logo--outline--92">
             <svg viewBox="0 0 92 92" id="icon--logo--outline--92" xmlns="http://www.w3.org/2000/svg">
@@ -30,7 +30,7 @@
         <button disabled type="button">Install</button>
       </div>
     </header>
-    <div class="artwork-image"></div>
+    <div class="artwork-image""></div>
     <div class="search-section">
       <!-- <img src="magn.png" class="icon-magn"> -->
       <input type="search" id="searchInput" onkeyup="searchArtwork()" placeholder="" value="">
@@ -46,21 +46,46 @@
     let artworkImage=document.querySelector('.artwork-image');
 
     let query=searchInput.value;
-    console.log("searchInput.value = query: ", searchInput.value)
 
     searchArtwork(query)
 
     function searchArtwork(query="Matisse") {
       query===""? "Picasso":query;
-      console.log("query ternary: ", searchInput.value)
-      fetch(`https://api.artic.edu/api/v1/artworks/search?q=${query}&fields=title,id,image_id&limit=50`).then((r) => r.json())
+      fetch(
+        `https://api.artic.edu/api/v1/artworks/search?q=${query}&fields=title,alt_text,date_qualifier_title,date_display,description,medium_display,dimensions,colorfulness,color,percentage,population,latitude,longitude,latlon,artwork_type_title,artist_title,category_titles,style_title,classification_titles,material_titles,technique_titles,theme_titles,image_id&limit=50`
+      ).then((r) => r.json())
         .then((data) => {
           console.log(data);
           const artworks=data.data;
           const artwork=artworks[ Math.floor(Math.random()*artworks.length) ];
           console.log(artwork);
           const src=`https://www.artic.edu/iiif/2/${artwork.image_id}/full/843,/0/default.jpg`;
-          artworkImage.innerHTML=`<img src="${src}" /> <p> ${artwork.title} </p>`;
+          artworkImage.innerHTML=`<img src="${src}"  ${onclick="location.reload()"} /> 
+          <div>
+          <h3>${artwork.artist_title} - ${artwork.title}</h3>
+          <h4>${artwork.date_display}</h4>
+          <details>
+          <summary>Details</summary>
+          <p>${artwork.description}<p>
+          <p>${artwork.medium_display}<p>
+          <p>${artwork.dimensions}<p>
+          <p>colorfulness: ${artwork.colorfulness}<p>
+          <p>color: ${artwork.color}<p>
+          <p>percentage: ${artwork.percentage}<p>
+          <p>population: ${artwork.population}<p>
+          <p>latitude: ${artwork.latitude}<p>
+          <p>longitude: ${artwork.longitude}<p>
+          <p>latlon: ${artwork.latlon}<p>
+          <p>artwork_type: ${artwork.artwork_type_title}<p>          
+          <p>category: ${artwork.category_titles}<p>
+          <p>style: ${artwork.style_title}<p>
+          <p>classification: ${artwork.classification_titles}<p>
+          <p>material: ${artwork.material_titles}<p>
+          <p>technique: ${artwork.technique_titles}<p>
+          <p>theme: ${artwork.theme_titles}</p> 
+          </details>
+          </div>
+          `;
         }
         );
     }
@@ -86,7 +111,6 @@
       };
 
       window.addEventListener('beforeinstallprompt', (event) => {
-        // Do not show the install prompt quite yet.
         event.preventDefault();
         // Stash the `BeforeInstallPromptEvent` for later.
         installEvent=event;
@@ -95,14 +119,14 @@
       });
 
       installButton.addEventListener('click', async () => {
-        // If there is no stashed `BeforeInstallPromptEvent`, return.
+        // If there is no stashed `BeforeInstallPromptEvent`}, {return.
         if(!installEvent) {
           return;
         }
         // Use the stashed `BeforeInstallPromptEvent` to prompt the user.
         installEvent.prompt();
         const result=await installEvent.userChoice;
-        // If the user installs the app, run `onInstall()`.
+        // If the user installs the app}, {run `onInstall()`.
         if(result.outcome==='accepted') {
           onInstall();
         }
@@ -123,4 +147,5 @@
     }
   </script>
 </body>
+
 </html>

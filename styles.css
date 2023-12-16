@@ -26,17 +26,18 @@ body {
   /* Prevent the rubber band scroll effect when the user hits the top or bottom of the document */
   overscroll-behavior   : none;
   flex-direction        : column;
-  font-family           : system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family           : 'SF Pro Text', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background            : #111;
+  color                 : #f5f5f2;
+
 }
 
 .wrapper {
-  display        : flex;
-  width          : 100%;
-  max-height: 100vh;
-  margin         : 0 auto;
-  align-items    : center;
-  justify-content: space-around;
-  flex-direction : column;
+  display       : flex;
+  width         : 100%;
+  margin        : 0 auto;
+  align-items   : center;
+  flex-direction: column;
 }
 
 img,
@@ -103,7 +104,7 @@ h1 {
   width          : 100%;
   display        : flex;
   position       : absolute;
-  top: 8%;
+  top            : 8%;
   justify-content: center;
 }
 
@@ -113,7 +114,7 @@ h1 {
   align-items        : center;
   padding            : 6px 14px;
   font-family        : -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
-  font-size: 1.25rem;
+  font-size          : 1.25rem;
   border-radius      : 6px;
   border             : none;
   background         : #6E6D70;
@@ -164,14 +165,56 @@ input {
 }
 
 .artwork-image {
-  margin   : 0 auto;
-  max-width: 1105px;
+  margin   : 1rem auto;
+  padding  : 1rem;
+  max-width: 100%;
   height   : auto;
 }
 
-div.artwork-image>p {
-  padding-left: 1rem;
-  padding-top : .5rem;
-  font-size   : 1rem;
-  margin      : 0 auto;
+.artwork-image>img {
+  margin: 0 auto;
+  height: auto;
+}
+
+h3 {
+  padding    : .8rem 0;
+  font-size  : 1.2rem;
+  font-weight: 400;
+}
+
+h4 {
+  padding    : 0  0 2rem 0;
+  font-size  : 1.1rem;
+  font-weight: 400;
+}
+
+div.artwork-image div {
+  margin   : 1rem auto 0;
+  max-width: 40rem;
+}
+
+summary {
+  font-size: 1.2rem;
+  color: #f5f5f266;
+  }
+
+summary::marker {
+  font-size: 1.7rem;
+  color: #f5f5f266;
+  text-align: end;
+}
+
+details>p {
+  font-size: 1rem;
+  color    : #f5f5f2ee
+}
+
+details>p:first-of-type {
+  font-size: 1.2rem;
+  padding  : .7rem 0;
+}
+
+details>p:nth-child(3) {
+  font-size: 1rem;
+  padding: 0rem 0 1rem;
 }

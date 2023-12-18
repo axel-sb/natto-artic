@@ -31,14 +31,14 @@
     {
       "src": "Screenshot_h.png",
       "form_factor": "narrow",
-      "sizes": "700x1007",
+      "sizes": "2000x3000",
       "type": "image/png",
       "description": "A random artwork from the collection"
     },
     {
       "src": "Screenshot_w.png",
       "form_factor": "wide",
-      "sizes": "2000x3000",
+      "sizes": "3000x2016",
       "type": "image/png",
       "description": "A random artwork from the collection"
     }

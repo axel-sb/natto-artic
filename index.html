@@ -31,67 +31,20 @@
       </div>
     </header>
     <div class="artwork-image""></div>
+    
     <div class="search-section">
-      <!-- <img src="magn.png" class="icon-magn"> -->
-      <input type="search" id="searchInput" onkeyup="searchArtwork()" placeholder="" value="">
-      <!-- <button onclick="location.reload();">⟳</button> -->
-      <p>
-        artworks from <a href="https://www.artic.edu/">Art Institute of Chicago</a>
-      </p>
+      <label for="site-search">Search</label>
+      <input type="search" id="site-search" name="q" />
+      <button id="search-btn" onclick="searchArtwork()">Search</button>
     </div>
+    <p>
+      artworks from <a href=" https://www.artic.edu/">Art Institute of Chicago</a>
+    </p>
+
   </div>
-  <!-- Search Input ____________________________________ -->
-  <script>
-    let searchInput=document.querySelector('#searchInput');
-    let artworkImage=document.querySelector('.artwork-image');
 
-    let query=searchInput.value;
+  <script src="search.js"></script>
 
-    searchArtwork(query)
-
-    function searchArtwork(query="Matisse") {
-      query===""? "Picasso":query;
-      fetch(
-        `https://api.artic.edu/api/v1/artworks/search?q=${query}&fields=title,alt_text,date_qualifier_title,date_display,description,medium_display,dimensions,colorfulness,color,percentage,population,latitude,longitude,latlon,artwork_type_title,artist_title,category_titles,style_title,classification_titles,material_titles,technique_titles,theme_titles,image_id&limit=50`
-      ).then((r) => r.json())
-        .then((data) => {
-          console.log(data);
-          const artworks=data.data;
-          const artwork=artworks[ Math.floor(Math.random()*artworks.length) ];
-          console.log(artwork);
-          const src=`https://www.artic.edu/iiif/2/${artwork.image_id}/full/843,/0/default.jpg`;
-          artworkImage.innerHTML=`<img src="${src}"  ${onclick="location.reload()"} /> 
-          <div>
-          <h3>${artwork.artist_title} - ${artwork.title}</h3>
-          <h4>${artwork.date_display}</h4>
-          <details>
-          <summary>Details</summary>
-          <p>${artwork.description}<p>
-          <p>${artwork.medium_display}<p>
-          <p>${artwork.dimensions}<p>
-          <p>colorfulness: ${artwork.colorfulness}<p>
-          <p>color: ${artwork.color}<p>
-          <p>percentage: ${artwork.percentage}<p>
-          <p>population: ${artwork.population}<p>
-          <p>latitude: ${artwork.latitude}<p>
-          <p>longitude: ${artwork.longitude}<p>
-          <p>latlon: ${artwork.latlon}<p>
-          <p>artwork_type: ${artwork.artwork_type_title}<p>          
-          <p>category: ${artwork.category_titles}<p>
-          <p>style: ${artwork.style_title}<p>
-          <p>classification: ${artwork.classification_titles}<p>
-          <p>material: ${artwork.material_titles}<p>
-          <p>technique: ${artwork.technique_titles}<p>
-          <p>theme: ${artwork.theme_titles}</p> 
-          </details>
-          </div>
-          `;
-        }
-        );
-    }
-
-    searchInput.addEventListener('keyup', searchArtwork);
-  </script>
   <!-- Install Button ___________________________________ -->
   <script>
     // The install button.
@@ -140,7 +93,8 @@
       });
     }
   </script>
-  <!--  Register SW -->
+
+  <!--  Register SW _____________________________________ -->
   <script>
     if(typeof navigator.serviceWorker!=='undefined') {
       navigator.serviceWorker.register('service-worker.js')
